@@ -4,7 +4,7 @@ import { property } from 'lit/decorators.js'
 import _ from 'lodash'
 import { CSSProperties } from 'react'
 
-import { ThemeConfig, themeConfig } from '../../config/themeConfig'
+import { themeConfig } from '../../config/themeConfig'
 import { FONT_WEIGHTS } from '../../enums'
 import { ComponentConfig, FontWeights, Sizes, Variants } from '../../types'
 import { getLineHeights, getSizes, getVarName, ifBLock } from '../../utils'
@@ -70,7 +70,7 @@ export class Typography extends LitElement {
               ${lineHeight.medium}px
             );
             font-weight: var(
-              ${unsafeCSS(getVarName(componentConfig.displayName, 'weight'))},
+              ${unsafeCSS(getVarName(componentConfig.displayName, 'font-weight'))},
               ${unsafeCSS(componentStyles.fontWeight)}
             );
           }
@@ -104,7 +104,7 @@ export class Typography extends LitElement {
           ${unsafeCSS(componentConfig.tagName)} {
             font-size: var(${unsafeCSS(getVarName(componentConfig.displayName, 'font-size'))}, 1em);
             font-weight: var(
-              ${unsafeCSS(getVarName(componentConfig.displayName, 'weight'))},
+              ${unsafeCSS(getVarName(componentConfig.displayName, 'font-weight'))},
               ${unsafeCSS(componentStyles.fontWeight)}
             );
           }
@@ -131,7 +131,7 @@ export class Typography extends LitElement {
         }
       `,
       ...Object.keys(themeConfig.pallete).map((variantName) => {
-        const variantConfig = themeConfig.pallete[variantName as keyof ThemeConfig['pallete']]
+        const variantConfig = themeConfig.pallete[variantName as Variants]
         if (variantConfig) {
           return css`
             ${unsafeCSS(`.variant-${variantName}`)} {
@@ -152,7 +152,7 @@ export class Typography extends LitElement {
             return css`
               ${unsafeCSS(`.weight-${weightName}`)} {
                 font-weight: var(
-                  ${unsafeCSS(getVarName('weight', weightName.toString()))},
+                  ${unsafeCSS(getVarName('font-weight', weightName.toString()))},
                   ${unsafeCSS(weightValue)}
                 );
               }

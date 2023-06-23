@@ -3,8 +3,8 @@ import _ from 'lodash'
 
 import { prefix } from '../config/kreattixConfig'
 
-export function appendPixel(value?: number) {
-  return !_.isEmpty(value) ? `${value}px` : value
+export function appendPixel(value?: number | string) {
+  return _.isNull(value) || _.isUndefined(value) ? value : `${value}px`
 }
 
 export function getNumberForSize(value: number, differByAmount: number) {

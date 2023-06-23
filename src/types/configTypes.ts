@@ -25,7 +25,7 @@ export interface PalleteConfig {
   contrast: string
 }
 
-export interface IThemeConfig {
+export interface ThemeConfig {
   components: ComponentStyles
   pallete: Record<Variants, PalleteConfig>
 }

@@ -1,9 +1,9 @@
 import { Pallete } from '@kreattix/colors'
 
 import { COMPONENT_NAME, FONT_WEIGHTS } from '../enums'
-import { IThemeConfig } from '../types'
+import { ThemeConfig } from '../types'
 
-export const themeConfig: IThemeConfig = {
+export const themeConfig: ThemeConfig = {
   components: {
     [COMPONENT_NAME.SPAN]: {
       fontWeight: FONT_WEIGHTS.inherit,
@@ -43,5 +43,3 @@ export const themeConfig: IThemeConfig = {
     warning: Pallete.amber,
   },
 }
-
-export type ThemeConfig = typeof themeConfig

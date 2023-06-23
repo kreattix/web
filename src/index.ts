@@ -1,6 +1,7 @@
 import { Heading, Label, Paragraph, Span, SubTitle, Title } from './components'
 
 export * from './components'
+export * from './utils'
 
 declare global {
   interface HTMLElementTagNameMap {
