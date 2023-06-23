@@ -1,0 +1,6 @@
+export * from './typography/heading'
+export * from './typography/label'
+export * from './typography/paragraph'
+export * from './typography/span'
+export * from './typography/subtitle'
+export * from './typography/title'
