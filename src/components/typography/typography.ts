@@ -1,19 +1,20 @@
 import { mapClass } from '@kreattix/utils'
 import { css, LitElement, unsafeCSS } from 'lit'
 import { property } from 'lit/decorators.js'
+import _ from 'lodash'
 import { CSSProperties } from 'react'
 
 import { ThemeConfig, themeConfig } from '../../config/themeConfig'
 import { FONT_WEIGHTS } from '../../enums'
-import { ComponentConfig, Sizes, Variants } from '../../types'
+import { ComponentConfig, FontWeights, Sizes, Variants } from '../../types'
 import { getLineHeights, getSizes, getVarName, ifBLock } from '../../utils'
 
 export class Typography extends LitElement {
-  @property({ reflect: true, type: String })
+  @property({ attribute: 'size', reflect: true, type: String })
   size?: Sizes
 
   @property({ attribute: 'ellipsis', reflect: true, type: Boolean })
-  isEllipsis = false
+  isEllipsis?: boolean
 
   @property({ attribute: 'italic', reflect: true, type: Boolean })
   isItalic?: boolean
@@ -25,7 +26,7 @@ export class Typography extends LitElement {
   variant?: Variants
 
   @property({ attribute: 'weight', reflect: true, type: String })
-  weight?: FONT_WEIGHTS
+  weight?: FontWeights
 
   static getEllipsisStyles = css`
     overflow: hidden;
@@ -49,12 +50,17 @@ export class Typography extends LitElement {
     const lineHeight = getLineHeights(componentStyles.fontSize)
 
     const isSpan = componentConfig.displayName === 'span'
+
     return [
       ifBLock(
         !isSpan,
         css`
           ${unsafeCSS(componentConfig.tagName)} {
             margin: 0;
+            font-family: var(
+              ${unsafeCSS(getVarName(componentConfig.displayName, 'font-family'))},
+              ${unsafeCSS(componentStyles.fontFamily)}
+            );
             font-size: var(
               ${unsafeCSS(getVarName(componentConfig.displayName, 'font-size'))},
               ${fontSize.medium}px
@@ -97,6 +103,10 @@ export class Typography extends LitElement {
         css`
           ${unsafeCSS(componentConfig.tagName)} {
             font-size: var(${unsafeCSS(getVarName(componentConfig.displayName, 'font-size'))}, 1em);
+            font-weight: var(
+              ${unsafeCSS(getVarName(componentConfig.displayName, 'weight'))},
+              ${unsafeCSS(componentStyles.fontWeight)}
+            );
           }
           .size-large {
             font-size: var(
@@ -135,9 +145,9 @@ export class Typography extends LitElement {
         return css``
       }),
       ...Object.values(FONT_WEIGHTS)
-        .filter((item) => typeof item === 'string')
+        .filter((item) => _.isString(item))
         .map((weightName) => {
-          const weightValue = FONT_WEIGHTS[weightName as FONT_WEIGHTS]
+          const weightValue = FONT_WEIGHTS[weightName as FontWeights]
           if (weightValue) {
             return css`
               ${unsafeCSS(`.weight-${weightName}`)} {

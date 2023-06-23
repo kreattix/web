@@ -1,6 +1,7 @@
-import { COMPONENT_NAME } from '../enums'
+import { COMPONENT_NAME, FONT_WEIGHTS } from '../enums'
 
 export type Sizes = 'large' | 'medium' | 'small'
+export type FontWeights = keyof typeof FONT_WEIGHTS
 
 export type Variants = 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning'
 

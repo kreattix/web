@@ -1,7 +1,8 @@
 export enum FONT_WEIGHTS {
-  'light' = 300,
-  'normal' = 400,
-  'medium' = 500,
-  'semibold' = 600,
-  'bold' = 700,
+  inherit = 'inherit',
+  light = 300,
+  normal = 400,
+  medium = 500,
+  semibold = 600,
+  bold = 700,
 }

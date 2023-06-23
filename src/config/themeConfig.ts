@@ -1,29 +1,37 @@
 import { Pallete } from '@kreattix/colors'
 
-import { COMPONENT_NAME } from '../enums'
+import { COMPONENT_NAME, FONT_WEIGHTS } from '../enums'
+import { IThemeConfig } from '../types'
 
-export const themeConfig = {
+export const themeConfig: IThemeConfig = {
   components: {
-    [COMPONENT_NAME.SPAN]: {},
+    [COMPONENT_NAME.SPAN]: {
+      fontWeight: FONT_WEIGHTS.inherit,
+    },
     [COMPONENT_NAME.LABEL]: {
+      fontFamily: 'inherit',
       fontSize: 14,
-      fontWeight: 500,
+      fontWeight: FONT_WEIGHTS.medium,
     },
     [COMPONENT_NAME.PARAGRAPH]: {
+      fontFamily: 'inherit',
       fontSize: 16,
-      fontWeight: 400,
+      fontWeight: FONT_WEIGHTS.normal,
     },
     [COMPONENT_NAME.SUBTITLE]: {
+      fontFamily: 'inherit',
       fontSize: 20,
-      fontWeight: 600,
+      fontWeight: FONT_WEIGHTS.semibold,
     },
     [COMPONENT_NAME.TITLE]: {
+      fontFamily: 'inherit',
       fontSize: 28,
-      fontWeight: 700,
+      fontWeight: FONT_WEIGHTS.bold,
     },
     [COMPONENT_NAME.HEADING]: {
+      fontFamily: 'inherit',
       fontSize: 45,
-      fontWeight: 700,
+      fontWeight: FONT_WEIGHTS.bold,
     },
   },
   pallete: {

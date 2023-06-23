@@ -4,7 +4,6 @@ import tsConfigPaths from 'vite-tsconfig-paths'
 
 const { EsLinter, linterPlugin } = EsLint
 
-// https://vitejs.dev/config/
 export default defineConfig((configEnv) => ({
   build: {
     lib: {
