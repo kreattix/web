@@ -10,6 +10,7 @@ export type ThemeColorTypes = keyof typeof ThemeColors
 export type FontWeightTypes = keyof typeof ThemeFontWeights
 export type BorderRadiusTypes = keyof typeof ThemeBorderRadius
 export type PaletteTypes = typeof Palette.gray
+export type CSSPropertyNames = keyof CSSProperties
 
 export declare namespace ThemeTypes {
   interface Components {

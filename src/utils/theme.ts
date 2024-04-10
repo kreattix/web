@@ -10,7 +10,7 @@ import {
   pixeledProperties,
   sizedProperties,
 } from './constants'
-import { ThemeTypes } from './types'
+import { CSSPropertyNames, ThemeTypes } from './types'
 
 const root = document.documentElement
 function setRootStyle(property: string, value: string) {
@@ -25,7 +25,7 @@ export const getVarName = (...args: string[]) => {
     .toLowerCase()
 }
 
-export function appendUnit(property: string, value: unknown) {
+export function appendUnit(property: CSSPropertyNames, value: unknown) {
   if (
     typeof value === 'number' &&
     [...sizedProperties, ...pixeledProperties].includes(property)
