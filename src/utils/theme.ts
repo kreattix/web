@@ -1,19 +1,12 @@
-import { Color } from '@kreattix/colors'
 import { objectEntries } from '@kreattix/utils'
 import { CSSProperties } from 'react'
 
-import { getSize } from '.'
-import {
-  appPreffix,
-  defaultBodyStyles,
-  defaultRootStyles,
-  pixeledProperties,
-  sizedProperties,
-} from './constants'
-import { CSSPropertyNames, ThemeTypes } from './types'
+import { appPreffix, pixeledProperties, sizedProperties } from './constants'
+import { getSize } from './size'
+import { CSSPropertyNames, ComponentNameType, ComponentStyleTypes } from './types'
 
 const root = document.documentElement
-function setRootStyle(property: string, value: string) {
+export const setRootStyle = (property: string, value: string) => {
   if (root) {
     root.style.setProperty(property, value)
   }
@@ -47,7 +40,7 @@ export function stringifyStyles(selector: string, cssObject: CSSProperties) {
 
 export const getCombinedStyles = (
   defaultStyles: CSSProperties,
-  styles?: CSSProperties,
+  styles?: CSSProperties
 ) => {
   const combinedStyles = { ...defaultStyles, ...styles }
   if (combinedStyles.fontSize && !combinedStyles.lineHeight) {
@@ -57,51 +50,31 @@ export const getCombinedStyles = (
   return combinedStyles
 }
 
-export const configureTheme = (config: ThemeTypes.Config) => {
-  const root = document.documentElement
-  if (root && config) {
-    if (config.palette) {
-      objectEntries(config.palette).forEach(([variant, palette]) => {
-        const paletteColors = palette.main ? Color(palette.main).palette : palette
-        objectEntries(paletteColors).forEach(([paletteType, color]) => {
-          root.style.setProperty(
-            getVarName(variant, paletteType),
-            palette[paletteType] || color,
-          )
-        })
-      })
-    }
-
-    if (config.component) {
-      objectEntries(config.component).forEach(([component, properties]) => {
-        if (properties.fontSize && !properties.lineHeight) {
-          properties['lineHeight'] = properties.fontSize
-        }
-        objectEntries(properties).forEach(([property, value]) => {
-          const varName = getVarName(component, property)
-          if (sizedProperties.includes(property)) {
-            const sizes = getSize(Number(value))
-            const sizedValue = sizes[property as keyof typeof sizes]
-            setRootStyle(varName, sizedValue.medium.toString())
-            setRootStyle(varName + '-small', sizedValue.small.toString())
-            setRootStyle(varName + '-large', sizedValue.large.toString())
-          } else {
-            setRootStyle(varName, appendUnit(property, value))
-          }
-        })
-      })
-    }
-
-    const bodyStyles = getCombinedStyles(defaultBodyStyles, config.bodyStyles)
-    const bodyElement = document.querySelector('style[data-kreattix-styles="true"]')
-    if (!bodyElement) {
-      document.head.innerHTML += `<style data-kreattix-styles="true">${stringifyStyles('body', bodyStyles)}</style>`
-    }
-
-    const rootStyles = getCombinedStyles(defaultRootStyles, config.rootStyles)
-    objectEntries(rootStyles).forEach(([key, value]) => {
-      const property = key.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
-      setRootStyle(property, appendUnit(key, value))
-    })
+export function getComponentStyles(
+  component: ComponentNameType,
+  styleConfig: ComponentStyleTypes | any,
+  prefix: string = appPreffix
+) {
+  const styles: ComponentStyleTypes = {}
+  if (styleConfig.fontSize && !styleConfig.lineHeight) {
+    styleConfig['lineHeight'] = styleConfig.fontSize
   }
+  Object.entries(styleConfig).forEach(([key, value]) => {
+    const property = key.replace(/([A-Z])/g, '-$1').toLowerCase()
+    const varPrefix = `${prefix}-${component}-${property}`
+
+    if (sizedProperties.includes(key)) {
+      const sizes = getSize(Number(value))
+      const sizedValue = sizes[key as keyof typeof sizes]
+
+      styles[property] = `var(--${varPrefix}, ${sizedValue.medium})`
+      styles[property + '-small'] = `var(--${varPrefix}-small, ${sizedValue.small})`
+      styles[property + '-large'] = `var(--${varPrefix}-large, ${sizedValue.large})`
+    } else if (pixeledProperties.includes(key)) {
+      styles[property] = `var(--${varPrefix}, ${value}px)`
+    } else {
+      styles[property] = `var(--${varPrefix}, ${value})`
+    }
+  })
+  return styles
 }

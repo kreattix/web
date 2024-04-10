@@ -21,6 +21,7 @@
     "no-duplicate-imports": "error",
     "no-duplicate-case": "error",
     "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-namespace": "off"
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }

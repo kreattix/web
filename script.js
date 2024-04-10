@@ -1,26 +1,9 @@
-import { configureTheme } from './src'
+import { initializeTheme } from './src'
 
-configureTheme({
-  bodyStyles: {
-    backgroundColor: 'black',
-    color: 'white',
-  },
+initializeTheme({
   component: {
-    text: {
-      color: 'red',
-      fontSize: 24,
-    },
-  },
-  palette: {
-    danger: {
-      main: '#ff0000',
-    },
-  },
-  rootStyles: {
-    alignItems: 'center',
-    display: 'flex',
-    fontSize: 18,
-    height: '100vh',
-    justifyContent: 'center',
-  },
+    display: {
+      fontSize: 60
+    }
+  }
 })

@@ -14,7 +14,7 @@ export function getSize(size: number, returnInPixels = true) {
     return {
       large: sizeWithUnit(currentSize + diff),
       medium: sizeWithUnit(currentSize),
-      small: sizeWithUnit(currentSize - diff),
+      small: sizeWithUnit(currentSize - diff)
     }
   }
 
@@ -39,6 +39,6 @@ export function getSize(size: number, returnInPixels = true) {
     get padding() {
       const diff = _getDiff(currentSize, 20)
       return _getSizes(diff)
-    },
+    }
   }
 }
