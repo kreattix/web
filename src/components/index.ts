@@ -1,1 +1,6 @@
 export * from './text/display'
+export * from './text/heading'
+export * from './text/label'
+export * from './text/paragraph'
+export * from './text/span'
+export * from './text/title'

@@ -58,7 +58,7 @@ export const ThemeBorderRadius = {
   square: 'square'
 } as const
 
-export const componentConfig: ThemeTypes.Components = {
+export const componentConfig: Partial<ThemeTypes.Components> = {
   display: {
     fontSize: 56,
     margin: 0
@@ -75,7 +75,6 @@ export const componentConfig: ThemeTypes.Components = {
     fontSize: 16,
     margin: 0
   },
-  span: {},
   title: {
     fontSize: 24,
     margin: 0
