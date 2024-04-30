@@ -21,15 +21,20 @@ export class Text extends LitElement {
   @property({ reflect: true, type: String })
   weight?: FontWeightTypes
 
-  @property({ reflect: true, type: Boolean })
-  ellipsis?: boolean
+  @property({ reflect: true, type: String })
+  ellipsis?: boolean | number
+
+  get ellipsisStyles() {
+    return this.ellipsis ? `-webkit-line-clamp: ${this.ellipsis}` : undefined
+  }
 
   get classes() {
     return classnames({
       [`size-${this.size}`]: this.size,
       [`color-${this.color}`]: this.color,
       [`weight-${this.weight}`]: this.weight,
-      [`ellipsis`]: this.ellipsis
+      [`ellipsis`]: this.ellipsis || isNaN(Number(this.ellipsis)),
+      [`ellipsis-clamp`]: this.ellipsis && !isNaN(Number(this.ellipsis))
     })
   }
 
@@ -72,6 +77,11 @@ export class Text extends LitElement {
         .ellipsis {
           text-overflow: ellipsis;
           white-space: nowrap;
+          overflow: hidden;
+        }
+        .ellipsis-clamp {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
           overflow: hidden;
         }
       `

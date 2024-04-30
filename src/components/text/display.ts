@@ -11,7 +11,7 @@ const componentName: ComponentNameType = 'display'
 @customElement([appPreffix, componentName].join('-'))
 export class Display extends Text {
   render() {
-    return html`<h1 class="${this.classes}"><slot /></h1>`
+    return html`<h1 class="${this.classes}" style="${this.ellipsisStyles}"><slot /></h1>`
   }
 
   static get styles() {
