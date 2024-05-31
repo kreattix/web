@@ -5,12 +5,44 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + Lit + TS</title>
-    <link rel="stylesheet" href="./src/index.css" />
-    <script type="module" src="/src/my-element.ts"></script>
+    <style>
+      body {
+        padding: 24px;
+        margin: 0;
+      }
+    </style>
+    <script type="module" src="/src/index.ts"></script>
   </head>
   <body>
-    <my-element>
-      <h1>Vite + Lit</h1>
-    </my-element>
+    <hr />
+    <kd-button>Kreattix Button</kd-button>
+    <hr />
+    <kd-display size="large" ellipsis color="primary"
+      >Kreattix Typography Display Large</kd-display
+    >
+    <kd-display ellipsis>Kreattix Typography Display</kd-display>
+    <kd-display size="small" ellipsis>Kreattix Typography Display Small</kd-display>
+    <hr />
+    <kd-heading size="large" ellipsis>Kreattix Typography Heading Large</kd-heading>
+    <kd-heading ellipsis>Kreattix Typography Heading</kd-heading>
+    <kd-heading size="small" ellipsis>Kreattix Typography Heading Small</kd-heading>
+    <hr />
+    <kd-title size="large" ellipsis>Kreattix Typography Title Large</kd-title>
+    <kd-title ellipsis>Kreattix Typography Title</kd-title>
+    <kd-title size="small" ellipsis>Kreattix Typography Title Small</kd-title>
+    <hr />
+    <kd-paragraph size="large" ellipsis>Kreattix Typography Paragraph Large</kd-paragraph>
+    <kd-paragraph ellipsis>Kreattix Typography Paragraph</kd-paragraph>
+    <kd-paragraph size="small" ellipsis>Kreattix Typography Paragraph Small</kd-paragraph>
+    <hr />
+    <kd-label size="large" ellipsis>Kreattix Typography Label Large</kd-label>
+    <kd-label ellipsis>Kreattix Typography Label</kd-label>
+    <kd-label size="small" ellipsis>Kreattix Typography Label Small</kd-label>
+    <hr />
+    <div><kd-span size="large" ellipsis>Kreattix Typography Span Large</kd-span></div>
+    <div><kd-span ellipsis>Kreattix Typography Span</kd-span></div>
+    <div><kd-span size="small" ellipsis>Kreattix Typography Span Small</kd-span></div>
+    <hr />
   </body>
+  <script type="module" src="script.js"></script>
 </html>
