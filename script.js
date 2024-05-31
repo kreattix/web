@@ -1,9 +1,3 @@
-import { initializeTheme } from './src'
+import { initializeTheme } from './src/utils/theme'
 
-initializeTheme({
-  component: {
-    display: {
-      fontSize: 60
-    }
-  }
-})
+initializeTheme()

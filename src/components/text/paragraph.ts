@@ -3,7 +3,6 @@ import { customElement } from 'lit/decorators.js'
 
 import { ComponentNameType } from '../../types'
 import { appPreffix, componentConfig } from '../../utils/constants'
-import { getComponentStyles } from '../../utils/theme'
 import { Text } from './text'
 
 const componentName: ComponentNameType = 'paragraph'
@@ -15,7 +14,6 @@ export class Paragraph extends Text {
   }
 
   static get styles() {
-    const styles = getComponentStyles(componentName, componentConfig[componentName])
-    return Text.getStyles('p', styles)
+    return Text.getStyles('p', componentName, componentConfig[componentName])
   }
 }

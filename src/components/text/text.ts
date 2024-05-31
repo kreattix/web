@@ -1,15 +1,10 @@
-import { classnames } from '@kreattix/utils'
+import { ICSSProperties, classnames, objectEntries } from '@kreattix/utils'
 import { LitElement, css, unsafeCSS } from 'lit'
 import { property } from 'lit/decorators.js'
 
-import {
-  ComponentStyleTypes,
-  FontWeightTypes,
-  SizeTypes,
-  ThemeColorTypes
-} from '../../types'
-import { ThemeColors, ThemeFontWeights } from '../../utils/constants'
-import { getVarName } from '../../utils/theme'
+import { FontWeightTypes, SizeTypes, ThemeColorTypes } from '../../types'
+import { KreattixColors, ThemeFontWeights } from '../../utils/constants'
+import { STYLE } from '../../utils/theme'
 
 export class Text extends LitElement {
   @property({ reflect: true, type: String })
@@ -33,45 +28,37 @@ export class Text extends LitElement {
       [`size-${this.size}`]: this.size,
       [`color-${this.color}`]: this.color,
       [`weight-${this.weight}`]: this.weight,
-      [`ellipsis`]: this.ellipsis || isNaN(Number(this.ellipsis)),
+      [`ellipsis`]:
+        typeof this.ellipsis === 'string' && ['true', ''].includes(this.ellipsis),
       [`ellipsis-clamp`]: this.ellipsis && !isNaN(Number(this.ellipsis))
     })
   }
 
-  static getStyles(tagName: string, componentStyles?: ComponentStyleTypes) {
+  static getStyles(
+    tagName: string,
+    componentName: string,
+    componentStyles?: ICSSProperties
+  ) {
+    let styles = ''
+    if (componentStyles) {
+      styles = STYLE.createCSS(componentStyles, tagName, componentName)
+    }
+
     return [
-      componentStyles
-        ? css`
-            ${unsafeCSS(tagName)} {
-              font-size: ${unsafeCSS(componentStyles['font-size'])};
-              line-height: ${unsafeCSS(componentStyles['line-height'])};
-              margin: ${unsafeCSS(componentStyles['margin'])};
-            }
-            .size-large {
-              font-size: ${unsafeCSS(componentStyles['font-size-large'])};
-              line-height: ${unsafeCSS(componentStyles['line-height-large'])};
-              margin: ${unsafeCSS(componentStyles['margin-large'])};
-            }
-            .size-small {
-              font-size: ${unsafeCSS(componentStyles['font-size-small'])};
-              line-height: ${unsafeCSS(componentStyles['line-height-small'])};
-              margin: ${unsafeCSS(componentStyles['margin-small'])};
-            }
-          `
-        : css``,
-      ...Object.entries(ThemeColors).map(([variant, color]) => {
-        return css`
-          .color-${unsafeCSS(variant)} {
-            color: var(${unsafeCSS(getVarName(variant, 'main'))}, ${unsafeCSS(color)});
+      unsafeCSS(styles),
+      ...objectEntries(KreattixColors).map(([keyName, value]) => {
+        return unsafeCSS(`
+          .color-${keyName} {
+            color: var(${STYLE.getVariableName(keyName, 'main')}, ${value});
           }
-        `
+        `)
       }),
-      ...Object.entries(ThemeFontWeights).map(([weight, value]) => {
-        return css`
-          .weight-${unsafeCSS(weight)} {
-            font-weight: ${unsafeCSS(value)};
+      ...objectEntries(ThemeFontWeights).map(([keyName, value]) => {
+        return unsafeCSS(`
+          .weight-${keyName} {
+            font-weight: var(${STYLE.getVariableName('weight', keyName)}, ${value});
           }
-        `
+        `)
       }),
       css`
         .ellipsis {

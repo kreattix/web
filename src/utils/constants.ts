@@ -5,14 +5,6 @@ import { ThemeTypes } from './types'
 
 export const appPreffix = 'kd'
 
-export const sizedProperties: string[] = [
-  'fontSize',
-  'lineHeight',
-  'margin',
-  'padding',
-  'borderRadius'
-] as const
-
 export const defaultBodyStyles: CSSProperties = {
   backgroundColor: Colors.white,
   color: Colors.black[800],
@@ -24,9 +16,7 @@ export const defaultRootStyles: CSSProperties = {
   fontSize: 16
 } as const
 
-export const pixeledProperties: string[] = ['borderWidth', 'letterSpacing']
-
-export const ThemeColors = {
+export const KreattixColors = {
   primary: Colors.blue[500],
   secondary: Colors.blueGray[500],
   success: Colors.green[500],

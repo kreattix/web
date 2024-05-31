@@ -2,7 +2,7 @@ import { css, html } from 'lit'
 import { customElement } from 'lit/decorators.js'
 
 import { ComponentNameType } from '../../types'
-import { appPreffix } from '../../utils/constants'
+import { appPreffix, componentConfig } from '../../utils/constants'
 import { Text } from './text'
 
 const componentName: ComponentNameType = 'span'
@@ -15,13 +15,13 @@ export class Span extends Text {
 
   static get styles() {
     return [
-      Text.getStyles('span'),
+      Text.getStyles('span', componentName, componentConfig[componentName]),
       css`
         .size-large {
-          font-size: 1.25em;
+          font-size: 1.15em;
         }
         .size-small {
-          font-size: 0.75em;
+          font-size: 0.85em;
         }
       `
     ]
