@@ -1,4 +1,5 @@
 import { Colors } from '@kreattix/colors'
+import { ICSSProperties } from '@kreattix/utils'
 import { CSSProperties } from 'react'
 
 import { ThemeTypes } from './types'
@@ -11,9 +12,9 @@ export const defaultBodyStyles: CSSProperties = {
   margin: 0
 } as const
 
-export const defaultRootStyles: CSSProperties = {
-  fontFamily: 'system-ui, Roboto, Montserrat, Poppins, sans-serif',
-  fontSize: 16
+export const defaultRootStyles: ICSSProperties = {
+  fontSize: 16,
+  fontFamily: 'system-ui, Roboto, Montserrat, Poppins, sans-serif'
 } as const
 
 export const KreattixColors = {

@@ -10,39 +10,66 @@
         padding: 24px;
         margin: 0;
       }
+      .box {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 16px;
+        border-radius: 10px;
+        margin: 16px 0;
+      }
+      .horizontal {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
     </style>
     <script type="module" src="/src/index.ts"></script>
   </head>
   <body>
-    <hr />
-    <kd-button>Kreattix Button</kd-button>
-    <hr />
-    <kd-display size="large" ellipsis color="primary"
-      >Kreattix Typography Display Large</kd-display
-    >
-    <kd-display ellipsis>Kreattix Typography Display</kd-display>
-    <kd-display size="small" ellipsis>Kreattix Typography Display Small</kd-display>
-    <hr />
-    <kd-heading size="large" ellipsis>Kreattix Typography Heading Large</kd-heading>
-    <kd-heading ellipsis>Kreattix Typography Heading</kd-heading>
-    <kd-heading size="small" ellipsis>Kreattix Typography Heading Small</kd-heading>
-    <hr />
-    <kd-title size="large" ellipsis>Kreattix Typography Title Large</kd-title>
-    <kd-title ellipsis>Kreattix Typography Title</kd-title>
-    <kd-title size="small" ellipsis>Kreattix Typography Title Small</kd-title>
-    <hr />
-    <kd-paragraph size="large" ellipsis>Kreattix Typography Paragraph Large</kd-paragraph>
-    <kd-paragraph ellipsis>Kreattix Typography Paragraph</kd-paragraph>
-    <kd-paragraph size="small" ellipsis>Kreattix Typography Paragraph Small</kd-paragraph>
-    <hr />
-    <kd-label size="large" ellipsis>Kreattix Typography Label Large</kd-label>
-    <kd-label ellipsis>Kreattix Typography Label</kd-label>
-    <kd-label size="small" ellipsis>Kreattix Typography Label Small</kd-label>
-    <hr />
-    <div><kd-span size="large" ellipsis>Kreattix Typography Span Large</kd-span></div>
-    <div><kd-span ellipsis>Kreattix Typography Span</kd-span></div>
-    <div><kd-span size="small" ellipsis>Kreattix Typography Span Small</kd-span></div>
-    <hr />
+    <div class="box">
+      <kd-title ellipsis>Typography</kd-title>
+      <div class="box horizontal">
+        <kd-button>Kreattix Button</kd-button>
+        <kd-button>Kreattix Button</kd-button>
+        <kd-button>Kreattix Button</kd-button>
+        <kd-button>Kreattix Button</kd-button>
+        <kd-button>Kreattix Button</kd-button>
+        <kd-button>Kreattix Button</kd-button>
+      </div>
+    </div>
+    <div class="box">
+      <kd-title ellipsis>Typography</kd-title>
+      <div class="box">
+        <kd-display size="large" ellipsis>Typography Display Large</kd-display>
+        <kd-display ellipsis>Typography Display</kd-display>
+        <kd-display size="small" ellipsis>Typography Display Small</kd-display>
+      </div>
+      <div class="box">
+        <kd-heading size="large" ellipsis>Typography Heading Large</kd-heading>
+        <kd-heading ellipsis>Typography Heading</kd-heading>
+        <kd-heading size="small" ellipsis>Typography Heading Small</kd-heading>
+      </div>
+      <div class="box">
+        <kd-title size="large" ellipsis>Typography Title Large</kd-title>
+        <kd-title ellipsis>Typography Title</kd-title>
+        <kd-title size="small" ellipsis>Typography Title Small</kd-title>
+      </div>
+      <div class="box">
+        <kd-paragraph size="large" ellipsis> Typography Paragraph Large </kd-paragraph>
+        <kd-paragraph ellipsis>Typography Paragraph</kd-paragraph>
+        <kd-paragraph size="small" ellipsis> Typography Paragraph Small </kd-paragraph>
+      </div>
+      <div class="box">
+        <div><kd-label size="large" ellipsis>Typography Label Large</kd-label></div>
+        <div><kd-label ellipsis>Typography Label</kd-label></div>
+        <div><kd-label size="small" ellipsis>Typography Label Small</kd-label></div>
+      </div>
+      <div class="box">
+        <div><kd-span size="large" ellipsis>Typography Span Large</kd-span></div>
+        <div><kd-span ellipsis>Typography Span</kd-span></div>
+        <div><kd-span size="small" ellipsis>Typography Span Small</kd-span></div>
+      </div>
+    </div>
   </body>
   <script type="module" src="script.js"></script>
 </html>
