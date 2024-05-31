@@ -1,6 +1,5 @@
 import { Palette } from '@kreattix/colors'
 import { ICSSProperties } from '@kreattix/utils'
-import { CSSProperties } from 'react'
 
 import {
   KreattixColors,
@@ -28,9 +27,9 @@ export type ComponentNameType =
 export declare namespace ThemeTypes {
   type Components = Record<ComponentNameType, ICSSProperties>
   interface Config {
-    bodyStyles?: CSSProperties
+    bodyStyles?: ICSSProperties
     component?: Components
     palette?: Record<ThemeColorTypes, PaletteTypes>
-    rootStyles?: CSSProperties
+    rootStyles?: ICSSProperties
   }
 }

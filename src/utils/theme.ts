@@ -31,10 +31,14 @@ export const initializeTheme = (config?: ThemeTypes.Config) => {
     { ...defaultBodyStyles, ...config?.bodyStyles },
     'body'
   )
-  const rootStyles = STYLE.createCSS(
-    { ...defaultRootStyles, ...config?.rootStyles },
-    ':root'
-  )
+
+  const manipulatedRootStyles = { ...defaultRootStyles, ...config?.rootStyles }
+  if (manipulatedRootStyles.fontFamily) {
+    manipulatedRootStyles['--font-family'] = manipulatedRootStyles.fontFamily
+  }
+
+  const rootStyles = STYLE.createCSS(manipulatedRootStyles, ':root')
+
   const componentStyles = STYLE.createCSS(themeStyles, ':root')
   if (!styleElement) {
     document.head.innerHTML += `

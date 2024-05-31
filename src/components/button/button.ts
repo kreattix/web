@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit'
+import { LitElement, css, html } from 'lit'
 import { customElement } from 'lit/decorators.js'
 
 import { ComponentNameType } from '../../types'
@@ -13,5 +13,12 @@ export class Button extends LitElement {
     return html`<button class="${this.classes}">
       <slot />
     </button>`
+  }
+  static get styles() {
+    return css`
+      button {
+        font-family: var(--font-family);
+      }
+    `
   }
 }
