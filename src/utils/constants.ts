@@ -19,11 +19,11 @@ export const defaultRootStyles: ICSSProperties = {
 
 export const KreattixColors = {
   primary: Colors.blue[500],
-  secondary: Colors.deepPurple[500],
+  secondary: Colors.purple[500],
   success: Colors.green[500],
   error: Colors.red[500],
   info: Colors.cyan[500],
-  warning: Colors.yellow[500],
+  warning: Colors.amber[500],
   dark: Colors.blueGray[900],
   light: Colors.blueGray[100]
 } as const
