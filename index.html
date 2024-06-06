@@ -18,11 +18,14 @@
         margin: 16px 0;
         display: flex;
         flex-direction: column;
-        gap: 16px;
       }
       .horizontal {
         flex-direction: row;
         flex-wrap: wrap;
+        gap: 16px;
+      }
+      .vertical {
+        gap: 16px;
       }
     </style>
     <script type="module" src="/src/index.ts"></script>
@@ -31,15 +34,46 @@
     <div class="box">
       <kd-title ellipsis>Buttons</kd-title>
       <div class="box">
-        <kd-button>Kreattix Button</kd-button>
-        <kd-button color="primary">Kreattix Button</kd-button>
-        <kd-button color="secondary">Kreattix Button</kd-button>
-        <kd-button color="success">Kreattix Button</kd-button>
-        <kd-button color="error">Kreattix Button</kd-button>
-        <kd-button color="info">Kreattix Button</kd-button>
-        <kd-button color="warning">Kreattix Button</kd-button>
-        <kd-button color="dark">Kreattix Button</kd-button>
-        <kd-button color="light">Kreattix Button</kd-button>
+        <kd-title ellipsis>Button Variants</kd-title>
+        <div class="box horizontal">
+          <kd-button>Button Primary</kd-button>
+          <kd-button color="secondary">Button Secondary</kd-button>
+          <kd-button color="success">Button Success</kd-button>
+          <kd-button color="error">Button Error</kd-button>
+          <kd-button color="info">Button Info</kd-button>
+          <kd-button color="warning">Button Warning</kd-button>
+          <kd-button color="dark">Button Dark</kd-button>
+          <kd-button color="light">Button Light</kd-button>
+        </div>
+      </div>
+      <div class="box">
+        <kd-title ellipsis>Button Disabled</kd-title>
+        <div class="box horizontal">
+          <kd-button disabled>Button Primary</kd-button>
+          <kd-button color="secondary" disabled>Button Secondary</kd-button>
+          <kd-button color="success" disabled>Button Success</kd-button>
+          <kd-button color="error" disabled>Button Error</kd-button>
+          <kd-button color="info" disabled>Button Info</kd-button>
+          <kd-button color="warning" disabled>Button Warning</kd-button>
+          <kd-button color="dark" disabled>Button Dark</kd-button>
+          <kd-button color="light" disabled>Button Light</kd-button>
+        </div>
+      </div>
+      <div class="box">
+        <kd-title ellipsis>Button Sizes</kd-title>
+        <div class="box horizontal">
+          <kd-button size="large">Button Large</kd-button>
+          <kd-button>Button Normal</kd-button>
+          <kd-button size="small">Kreattix Small</kd-button>
+        </div>
+      </div>
+      <div class="box">
+        <kd-title ellipsis>Button Border Radius</kd-title>
+        <div class="box horizontal">
+          <kd-button radius="square">Button Large</kd-button>
+          <kd-button>Button Normal</kd-button>
+          <kd-button radius="circle">Kreattix Small</kd-button>
+        </div>
       </div>
     </div>
     <div class="box">
