@@ -19,10 +19,10 @@ export const defaultRootStyles: ICSSProperties = {
 
 export const KreattixColors = {
   primary: Colors.blue[500],
-  secondary: Colors.blueGray[500],
+  secondary: Colors.deepPurple[500],
   success: Colors.green[500],
   error: Colors.red[500],
-  info: Colors.blue[500],
+  info: Colors.cyan[500],
   warning: Colors.yellow[500],
   dark: Colors.blueGray[900],
   light: Colors.blueGray[100]
@@ -49,7 +49,7 @@ export const ThemeBorderRadius = {
   square: 'square'
 } as const
 
-export const componentConfig: Partial<ThemeTypes.Components> = {
+export const componentConfig: ThemeTypes.Components = {
   display: {
     fontSize: 56,
     margin: 0
@@ -69,5 +69,17 @@ export const componentConfig: Partial<ThemeTypes.Components> = {
   title: {
     fontSize: 24,
     margin: 0
+  },
+  span: {},
+  button: {
+    fontSize: 16,
+    outline: 'none',
+    padding: '8px 16px',
+    cursor: 'pointer',
+    borderRadius: 6,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: 'transparent',
+    transition: 'all 0.3s ease-in-out'
   }
 }

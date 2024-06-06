@@ -2,7 +2,7 @@ import { css, html } from 'lit'
 import { customElement } from 'lit/decorators.js'
 
 import { ComponentNameType } from '../../types'
-import { appPreffix, componentConfig } from '../../utils/constants'
+import { appPreffix, componentConfig } from '../../utils'
 import { Text } from './text'
 
 const componentName: ComponentNameType = 'span'

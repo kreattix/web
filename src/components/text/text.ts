@@ -3,8 +3,7 @@ import { LitElement, css, unsafeCSS } from 'lit'
 import { property } from 'lit/decorators.js'
 
 import { FontWeightTypes, SizeTypes, ThemeColorTypes } from '../../types'
-import { KreattixColors, ThemeFontWeights } from '../../utils/constants'
-import { STYLE } from '../../utils/theme'
+import { KreattixColors, STYLE, ThemeFontWeights } from '../../utils'
 
 export class Text extends LitElement {
   @property({ reflect: true, type: String })

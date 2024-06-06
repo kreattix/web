@@ -1,3 +1,3 @@
-import { initializeTheme } from './src/utils/theme'
+import { initializeTheme } from './src/utils'
 
 initializeTheme({})
