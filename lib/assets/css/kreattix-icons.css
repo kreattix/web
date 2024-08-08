@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Material Icons';
+  src: url(./lib/assets/fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Material Icons Outlined';
+  src: url(./lib/assets/fonts/MaterialIconsOutlined-Regular.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Material Icons Round';
+  src: url(./lib/assets/fonts/MaterialIconsRound-Regular.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Material Icons Sharp';
+  src: url(./lib/assets/fonts/MaterialIconsSharp-Regular.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Material Icons Two Tone';
+  src: url(./lib/assets/fonts/MaterialIconsTwoTone-Regular.otf) format('opentype');
+}
