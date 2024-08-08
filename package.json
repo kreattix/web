@@ -21,7 +21,7 @@
     "@kreattix/colors": "../colors",
     "@kreattix/constants": "../constants",
     "@kreattix/utils": "../utils",
-    "lit": "^3.1.4"
+    "lit": "^3.2.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^26.0.1",
