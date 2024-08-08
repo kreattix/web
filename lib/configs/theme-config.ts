@@ -1,7 +1,3 @@
-import { Colors } from '@kreattix/colors'
-import { ICSSProperties } from '@kreattix/utils'
-import { CSSProperties } from 'react'
-
 export enum ComponentName {
   Display = 'display',
   Heading = 'heading',
@@ -13,17 +9,6 @@ export enum ComponentName {
   Icon = 'icon',
   Text = 'text'
 }
-
-export const defaultBodyStyles: CSSProperties = {
-  backgroundColor: Colors.white,
-  color: Colors.black[800],
-  margin: 0
-} as const
-
-export const defaultRootStyles: ICSSProperties = {
-  fontSize: 16,
-  fontFamily: 'system-ui, Roboto, Montserrat, Poppins, sans-serif'
-} as const
 
 export const IconVarients = {
   material: 'Material Icons',

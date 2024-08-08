@@ -19,7 +19,7 @@ export default defineConfig({
       output: {
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'style.css') {
-            return 'kreattix-icons.css'
+            return 'kreattix-web.css'
           }
           return assetInfo.name || ''
         }

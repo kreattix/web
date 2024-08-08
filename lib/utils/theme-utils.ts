@@ -2,8 +2,6 @@ import { Color } from '@kreattix/colors'
 import { appPrefix } from '@kreattix/constants'
 import { ICSSProperties, ICSSValue, StyleSheet, objectEntries } from '@kreattix/utils'
 
-import '../configs'
-import { defaultBodyStyles, defaultRootStyles } from '../configs'
 import { DeepPartial, ThemeTypes } from './types'
 
 export const STYLE = StyleSheet(appPrefix)
@@ -35,9 +33,9 @@ export const configureTheme = (config?: DeepPartial<ThemeTypes.Config>) => {
     })
   }
 
-  const bodyStyles = styleSheet.createCSS({ ...defaultBodyStyles, ...config?.bodyStyles }, 'body')
+  const bodyStyles = styleSheet.createCSS((config?.bodyStyles || {}) as ICSSProperties, 'body')
 
-  const manipulatedRootStyles = { ...defaultRootStyles, ...config?.rootStyles }
+  const manipulatedRootStyles = config?.rootStyles ?? {}
   if (manipulatedRootStyles.fontFamily) {
     manipulatedRootStyles['--font-family'] = manipulatedRootStyles.fontFamily as ICSSValue
   }

@@ -4,7 +4,6 @@ import { classnames } from '@kreattix/utils'
 import { LitElement, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
-import '../../assets/css/kreattix-icons.css'
 import { ComponentName, IconVarients } from '../../configs'
 import { IconStyles } from './icon.styles'
 
