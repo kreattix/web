@@ -26,5 +26,6 @@ export default defineConfig({
     },
     sourcemap: true,
     minify: 'esbuild'
-  }
+  },
+  root: process.env.NODE_ENV === 'development' ? 'example' : undefined
 })
