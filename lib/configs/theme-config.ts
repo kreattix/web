@@ -2,7 +2,17 @@ import { Colors } from '@kreattix/colors'
 import { ICSSProperties } from '@kreattix/utils'
 import { CSSProperties } from 'react'
 
-import { ThemeTypes } from '../types'
+export enum ComponentName {
+  Display = 'display',
+  Heading = 'heading',
+  Paragraph = 'paragraph',
+  Label = 'label',
+  Title = 'title',
+  Span = 'span',
+  Button = 'button',
+  Icon = 'icon',
+  Text = 'text'
+}
 
 export const defaultBodyStyles: CSSProperties = {
   backgroundColor: Colors.white,
@@ -54,44 +64,5 @@ export const commonStyles = {
     xl: 40,
     xxl: 50,
     xxxl: 80
-  }
-}
-
-export const componentConfig: ThemeTypes.Components = {
-  display: {
-    fontSize: 56,
-    margin: 0
-  },
-  heading: {
-    fontSize: 36,
-    margin: 0
-  },
-  label: {
-    fontSize: 14,
-    margin: 0
-  },
-  paragraph: {
-    fontSize: 16,
-    margin: 0
-  },
-  title: {
-    fontSize: 24,
-    margin: 0
-  },
-  text: {
-    fontSize: 16,
-    margin: 0
-  },
-  span: {},
-  button: {
-    fontSize: 16,
-    borderRadius: commonStyles.borderRadius.sm,
-    padding: `8px 16px`
-  },
-  icon: {
-    fontSize: '1em',
-    verticalAlign: 'middle',
-    fontSizeSmall: '0.8em',
-    fontSizeLarge: '1.25em'
   }
 }

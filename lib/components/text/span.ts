@@ -2,12 +2,11 @@ import { appPrefix } from '@kreattix/constants'
 import { css, html } from 'lit'
 import { customElement } from 'lit/decorators.js'
 
-import { ComponentNameType } from '../../types'
+import { ComponentName } from '../../configs'
 import { TextBase } from './text-base'
+import { SpanStyles } from './text.styles'
 
-const componentName: ComponentNameType = 'span'
-
-@customElement([appPrefix, componentName].join('-'))
+@customElement([appPrefix, ComponentName.Span].join('-'))
 export class Span extends TextBase {
   render() {
     return html`<span class="${this.classes}"><slot></slot></span>`
@@ -15,7 +14,7 @@ export class Span extends TextBase {
 
   static get styles() {
     return [
-      TextBase.getStyles('span', componentName, SpanStyles),
+      TextBase.getStyles('span', ComponentName.Span, SpanStyles),
       css`
         .size-large {
           font-size: 1.15em;
@@ -27,8 +26,6 @@ export class Span extends TextBase {
     ]
   }
 }
-
-const SpanStyles = {}
 
 declare global {
   interface HTMLElementTagNameMap {

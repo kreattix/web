@@ -2,25 +2,19 @@ import { appPrefix } from '@kreattix/constants'
 import { html } from 'lit'
 import { customElement } from 'lit/decorators.js'
 
-import { ComponentNameType } from '../../types'
+import { ComponentName } from '../../configs'
 import { TextBase } from './text-base'
+import { LabelStyles } from './text.styles'
 
-const componentName: ComponentNameType = 'label'
-
-@customElement([appPrefix, componentName].join('-'))
+@customElement([appPrefix, ComponentName.Label].join('-'))
 export class Label extends TextBase {
   render() {
     return html`<label class="${this.classes}"><slot></slot></label>`
   }
 
   static get styles() {
-    return TextBase.getStyles('label', componentName, LabelStyles)
+    return TextBase.getStyles('label', ComponentName.Label, LabelStyles)
   }
-}
-
-const LabelStyles = {
-  fontSize: 14,
-  margin: 0
 }
 
 declare global {

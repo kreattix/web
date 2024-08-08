@@ -2,25 +2,19 @@ import { appPrefix } from '@kreattix/constants'
 import { html } from 'lit'
 import { customElement } from 'lit/decorators.js'
 
-import { ComponentNameType } from '../../types'
+import { ComponentName } from '../../configs'
 import { TextBase } from './text-base'
+import { TitleStyles } from './text.styles'
 
-const componentName: ComponentNameType = 'title'
-
-@customElement([appPrefix, componentName].join('-'))
+@customElement([appPrefix, ComponentName.Title].join('-'))
 export class Title extends TextBase {
   render() {
     return html`<h3 class="${this.classes}"><slot></slot></h3>`
   }
 
   static get styles() {
-    return TextBase.getStyles('h3', componentName, TitleStyles)
+    return TextBase.getStyles('h3', ComponentName.Title, TitleStyles)
   }
-}
-
-const TitleStyles = {
-  fontSize: 24,
-  margin: 0
 }
 
 declare global {
